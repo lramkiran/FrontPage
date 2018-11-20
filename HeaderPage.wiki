@@ -1,0 +1,40 @@
+---
+Test
+---
+!contents -R2 -g -p -f -h
+!include .DebugSettings
+!define TEST_SYSTEM {slim}
+!path /Users/rlakkakula/Desktop/Fitnesse/appstore-fitnesse/target/appstore-fitnesse-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+
+
+
+!| import                        |
+|com.salesforce.fitnesse.fixtures|
+|com.salesforce.fitnesse.app     |
+
+!| Define table type      |
+|SObjectUpsert   |as Table|
+|SObjectAssert   |as Table|
+|Setup Field Info|as Table|
+|Remote Call     |as Table|
+
+'''''Set the environment Info.'''''
+
+!| script|AppstoreFitnesseApplication                                                                                                                       |
+|run;    |prashanth.chaitanya@salesforce.com.appsdeva|LrIc6HIoJi2cro+cRFE32N4dhAJSey7H|https://test.salesforce.com/services/Soap/u/44.0|sfm-intap-ld001|3210|
+
+
+
+!| Setup Field Info                |
+|Account                           |
+|Contact                           |
+|Opportunity                       |
+|Contract                          |
+|Order                             |
+|OrderItem                         |
+|MockOrg__c                        |
+|Tenant                            |
+|Apttus_Config2__AccountLocation__c|
+|sfbill__Transaction__c            |
+|sfbill__TransactionLine__c        |
+|CloudServiceProvider              |
