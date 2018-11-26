@@ -1,4 +1,28 @@
 ---
 Test
 ---
-<test page>
+!include -c <FrontPage.HeaderPage
+
+
+'''''Create the Account.'''''
+
+!| SObject Upsert|Insert                                                                                             |
+|Account                                                                                                             |
+|_f_id           |Name               |AccountNumber|_query_OwnerId                                       |Id|Response|
+|1               |Prashanth Account 1|             |select Id from User where name ='Prashanth Chaitanya'|  |        |
+
+'''''Create the !-MockOrg-!.'''''
+
+!| SObject Upsert|Insert                                                                                |
+|MockOrg__c                                                                                             |
+|_f_id           |Account:Account__c|CrmLicenseCount__c|CurrencyIsoCode|Edition__c|status__c|Id|Response|
+|1               |1                 |10                |USD            |Enterprise|Trial    |  |        |
+
+'''''Create the Tenant.'''''
+
+!| SObject Upsert|Insert                                                                                                                                                    |
+|Tenant                                                                                                                                                                     |
+|_f_id           |Name              |Account:AccountId|Account:sfbase__AccountId__c|ServiceProviderKey|CloudServiceProviderid|CurrencyISOCode|_random_ExternalId|Id|Response|
+|1               |Prashanth Tenant 1|1                |1                           |force.com         |1L99A000000006KSAQ    |USD            |                  |  |        |
+
+'''''Create the Tenant Information.'''''
